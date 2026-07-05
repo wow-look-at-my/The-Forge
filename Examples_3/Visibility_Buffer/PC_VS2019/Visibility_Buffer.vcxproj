@@ -24,7 +24,7 @@
     <ClInclude Include="..\src\Shaders\FSL\Shading.h.fsl" />
     <ClInclude Include="..\src\Shaders\FSL\TriangleFiltering.srt.h" />
     <ClInclude Include="..\src\Shaders\FSL\VisibilityBufferResources.h.fsl" />
-    <ClInclude Include="..\src\Shaders\FSL\GLobal.srt.h" />
+    <ClInclude Include="..\src\Shaders\FSL\Global.srt.h" />
     <ClInclude Include="..\src\Shaders\FSL\Resolve.srt.h" />
   </ItemGroup>
   <ItemGroup>

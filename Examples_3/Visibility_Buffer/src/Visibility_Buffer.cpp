@@ -44,7 +44,7 @@
 // fsl
 #include "../../../Common_3/Graphics/FSL/defaults.h"
 #include "Shaders/FSL/ShaderDefs.h.fsl"
-#include "Shaders/FSL/GLobal.srt.h"
+#include "Shaders/FSL/Global.srt.h"
 #include "Shaders/FSL/GodrayBlur.srt.h"
 #include "Shaders/FSL/LightClusters.srt.h"
 #include "Shaders/FSL/TriangleFiltering.srt.h"

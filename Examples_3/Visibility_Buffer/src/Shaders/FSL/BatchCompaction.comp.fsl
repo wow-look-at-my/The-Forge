@@ -43,7 +43,7 @@
 
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 RES(RWBuffer(uint), indirectMaterialBufferRW, UPDATE_FREQ_NONE, u40, binding = 40);
 #include "../../../../../Common_3/Renderer/VisibilityBuffer/Shaders/FSL/batch_compaction.h.fsl"

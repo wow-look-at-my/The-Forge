@@ -21,7 +21,7 @@
     <ClInclude Include="..\src\SanMiguel.h">
       <Filter>Headers</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Shaders\FSL\GLobal.srt.h">
+    <ClInclude Include="..\src\Shaders\FSL\Global.srt.h">
       <Filter>Headers</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Shaders\FSL\GodrayBlur.srt.h">

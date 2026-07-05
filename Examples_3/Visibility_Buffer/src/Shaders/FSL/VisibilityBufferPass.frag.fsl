@@ -24,7 +24,7 @@
 
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 ROOT_SIGNATURE(DefaultRootSignature)
 float4 PS_MAIN( PsInOpaque In, SV_PrimitiveID(uint) primitiveId )

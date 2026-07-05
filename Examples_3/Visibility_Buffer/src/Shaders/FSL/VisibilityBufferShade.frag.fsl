@@ -31,7 +31,7 @@
 #include "../../../../../Common_3/Renderer/VisibilityBuffer/Shaders/FSL/VisibilityBufferShadingUtilities.h.fsl"
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 // This shader loads draw / triangle Id per pixel and reconstruct interpolated vertex data.
 

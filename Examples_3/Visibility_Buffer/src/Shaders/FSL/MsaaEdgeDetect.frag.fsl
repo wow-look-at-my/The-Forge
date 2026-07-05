@@ -29,7 +29,7 @@
 */
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 // Comment to use non-linear depth samples. This is faster, since we don't linearize depths.
 // However, far away samples are not tagged for anti aliasing, even if their real-world depth

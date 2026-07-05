@@ -12,7 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\SanMiguel.h" />
-    <ClInclude Include="..\src\Shaders\FSL\GLobal.srt.h" />
+    <ClInclude Include="..\src\Shaders\FSL\Global.srt.h" />
     <ClInclude Include="..\src\Shaders\FSL\GodrayBlur.srt.h" />
     <ClInclude Include="..\src\Shaders\FSL\LightClusters.srt.h" />
     <ClInclude Include="..\src\Shaders\FSL\PerFrameSet.h" />

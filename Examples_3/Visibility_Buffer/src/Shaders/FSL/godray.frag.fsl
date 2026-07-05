@@ -29,7 +29,7 @@
 #endif
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 #include "VisibilityBufferResourcesUtil.h.fsl"
 
 
