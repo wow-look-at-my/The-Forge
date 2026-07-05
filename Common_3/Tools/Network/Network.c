@@ -80,13 +80,17 @@ bool initNetwork(void)
         return false;
     }
 
+    gInitialized = true;
     return true;
 }
 
 void exitNetwork(void)
 {
     if (gInitialized)
-        gInitialized = WSACleanup() == 0;
+    {
+        WSACleanup();
+        gInitialized = false;
+    }
 }
 
 #elif defined(NX64)
@@ -256,8 +260,16 @@ bool socketAddrFromHostnamePort(SocketAddr* addr, const char* hostname, uint16_t
             memcpy(addrPSinAddr(addr), &in6addr_any, sizeof(in6addr_any));
         }
 
-        memcpy(addrPSinAddr(addr), &((struct sockaddr_in*)result->ai_addr)->sin_addr, result->ai_addrlen);
+        if (family == AF_INET6)
+            memcpy(addrPSinAddr(addr), &((struct sockaddr_in6*)result->ai_addr)->sin6_addr, sizeof(struct in6_addr));
+        else
+            memcpy(addrPSinAddr(addr), &((struct sockaddr_in*)result->ai_addr)->sin_addr, sizeof(struct in_addr));
+
+        freeaddrinfo(result);
     }
+#else
+    LOGF(eERROR, "socketAddrFromHostnamePort is not implemented on this platform");
+    success = false;
 #endif
 
     return success;
@@ -298,10 +310,18 @@ bool socketCreateServer(Socket* sock, const SocketAddr* addr, int backlog)
 
     socklen_t len = addrLen(addr);
     if (bind(s, (struct sockaddr*)addr->mStorage, len) != 0)
-        return socketError("Failed to bind to socket address", addr);
+    {
+        socketError("Failed to bind to socket address", addr);
+        close(s);
+        return false;
+    }
 
     if (listen(s, backlog) != 0)
-        return socketError("Failed to listen on socket at", addr);
+    {
+        socketError("Failed to listen on socket at", addr);
+        close(s);
+        return false;
+    }
 
     *sock = s;
     return true;
@@ -323,14 +343,10 @@ bool socketCreateClient(Socket* sock, const SocketAddr* addr)
     socklen_t len = addrLen(addr);
     if (connect(s, (struct sockaddr*)addr->mStorage, len) != 0)
     {
-        if (platformSocketOnErrorConnect(addr))
-        {
-            return false;
-        }
-        else
-        {
-            return socketError("Failed to connect socket", addr);
-        }
+        if (!platformSocketOnErrorConnect(addr))
+            socketError("Failed to connect socket", addr);
+        close(s);
+        return false;
     }
 
     *sock = s;
