@@ -1,0 +1,4 @@
+# Ensure platform scripts always check out with the line endings their interpreter expects
+*.bat text eol=crlf
+*.sh text eol=lf
+*.command text eol=lf

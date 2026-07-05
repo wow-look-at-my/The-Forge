@@ -24,9 +24,6 @@
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan.c">
       <Filter>Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan_Cxx.cpp">
-      <Filter>Vulkan</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\VulkanRaytracing.c">
       <Filter>Vulkan</Filter>
     </ClCompile>

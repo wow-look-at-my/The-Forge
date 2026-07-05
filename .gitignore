@@ -56,15 +56,9 @@
 **.bak
 
 # Android build artifacts
-Examples_3/Unit_Tests/Android_VisualStudio2017/Android-*
 Examples_3/Unit_Tests/Android_VS2019/Android-*
-Examples_3/Visibility_Buffer/Android_VisualStudio2017/Android-*
 Examples_3/Visibility_Buffer/Android_VS2019/Android-*
 Examples_3/Visibility_Buffer2/Android_VS2019/Android-*
-Examples_3/Ephemeris/Android_VisualStudio2017/Android-*
-Examples_3/Ephemeris/Android_VS2019/Android-*
-Examples_3/RTGI/Android_VisualStudio2017/Android-*
-Examples_3/RTGI/Android_VS2019/Android-*
 **/.gradle
 **/.agde
 Common_3/OS/Android/Packaging/build/**
@@ -72,7 +66,6 @@ Common_3/OS/Android/Packaging/build/**
 #Quest build artifacts
 Examples_3/Visibility_Buffer/Quest_VS2019/Android-*
 Examples_3/Unit_Tests/Quest_VS2019/Android-*
-Examples_3/Ephemeris/Quest_VS2019/Android-*
 
 ##Xcode User settings
 xcuserdata/
@@ -116,13 +109,7 @@ PBR.zip
 **/server-log.txt
 
 # MacOS Common Shaders
-Examples_3/Aura/macOS_Xcode/The-Forge/Shaders/
-Examples_3/Ephemeris/macOS_Xcode/The-Forge/Shaders/
-Examples_3/RTGI/macOS_Xcode/The-Forge/Shaders/
 Examples_3/Unit_Tests/macOS_Xcode/The-Forge/Shaders/
-Examples_3/Aura/macOS_Xcode/The-Forge/CompiledShaders/
-Examples_3/Ephemeris/macOS_Xcode/The-Forge/CompiledShaders/
-Examples_3/RTGI/macOS_Xcode/The-Forge/CompiledShaders/
 Examples_3/Unit_Tests/macOS_Xcode/The-Forge/CompiledShaders/
 
 # Automatically Generated Files
@@ -139,10 +126,6 @@ Examples_3/Unit_Tests/macOS_Xcode/The-Forge/CompiledShaders/
 **/Xcode_Cache/
 **/Xcode_Cache_Sanitizers/
 **/BinSanitizers/
-
-# Nuget packages
-Tools/ShaderBuildCommand/packages/
-**/ThirdParty/OpenSource/hlslparser/Ext/ShaderTranslator/packages/
 
 # Linux / SteamOS_CodeLite files
 /**/SteamOS_CodeLite/.codelite/
@@ -182,17 +165,6 @@ Common_3/Tools/BunyArchive/Xcode/Debug/*
 /**/ThirdParty/OpenSource/ozz-animation/**/*.mk
 /**/Tools/AssetPipeline/Apple/Release/
 /**/Tools/AssetPipeline/Apple/Debug/
-
-#assimp ignores
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/*.mk
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/build/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/Build/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/test/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/tools/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/Temp/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/Bin/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/assimp.txt/
-/**/ThirdParty/OpenSource/assimp/4.1.0/**/Assimp.txt/
 
 #Memleak files
 *.memleaks
@@ -241,13 +213,6 @@ Common_3/Tools/ThirdParty/OpenSource/ISPCTextureCompressor/Linux/compile_flags.t
 
 #Python
 *.pyc
-
-#Noesis
-Common_3/Application/ThirdParty/noesisgui/Lib
-Common_3/Application/ThirdParty/noesisgui/SDK/_build/**/build
-!Common_3/Application/ThirdParty/noesisgui/SDK/_build/*.sln
-!Common_3/Application/ThirdParty/noesisgui/SDK/_build/*.vcxproj
-!Common_3/Application/ThirdParty/noesisgui/SDK/_build/*.vcxproj.filters
 
 #ISPC Texture compressor generated files
 /Common_3/Tools/ThirdParty/OpenSource/ISPCTextureCompressor/ispc_texcomp/kernel_*.h

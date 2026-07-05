@@ -17,7 +17,6 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="Common">
-    <File Name="../../../../Common_3/Renderer/IMemoryAllocator.h"/>
     <File Name="../../../../Common_3/Graphics/Interfaces/IGraphics.h"/>
     <File Name="../../../../Common_3/Resources/ResourceLoader/Interfaces/IResourceLoader.h"/>
     <File Name="../../../../Common_3/Resources/ResourceLoader/ResourceLoader.cpp"/>
@@ -26,7 +25,6 @@
   </VirtualDirectory>
   <VirtualDirectory Name="Vulkan">
     <File Name="../../../../Common_3/Graphics/Vulkan/Vulkan.c"/>
-    <File Name="../../../../Common_3/Graphics/Vulkan/Vulkan_Cxx.cpp"/>
     <File Name="../../../../Common_3/Graphics/Vulkan/VulkanRaytracing.c"/>
   </VirtualDirectory>
   <Dependencies Name="Debug"/>

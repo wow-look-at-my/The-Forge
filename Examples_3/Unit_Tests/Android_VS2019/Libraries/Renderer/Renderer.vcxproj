@@ -14,7 +14,6 @@
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\GraphicsConfig.cpp" />
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan.c" />
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\VulkanRaytracing.c" />
-    <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan_Cxx.cpp" />
     <ClCompile Include="..\..\..\..\..\Common_3\Renderer\ParticleSystem\ParticleSystem.cpp" />
     <ClCompile Include="..\..\..\..\..\Common_3\Renderer\VisibilityBuffer\VisibilityBuffer.cpp" />
     <ClCompile Include="..\..\..\..\..\Common_3\Resources\ResourceLoader\ResourceLoader.cpp" />
