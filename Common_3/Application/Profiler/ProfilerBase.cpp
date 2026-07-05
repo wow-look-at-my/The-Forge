@@ -735,38 +735,17 @@ void profileUpdateDetailedModeTooltip(Profile& S)
             const ProfileDetailedModeTime& timer = gDetailedModeTooltips[i].mTimer;
             const ProfileTimerInfo&        timerInfo = S.TimerInfo[timer.mTimerInfoIndex];
 
-            strcat(gTooltipData, timerInfo.pName);
-            strcat(gTooltipData, "\n------------------------------\n");
-
-            strcat(gTooltipData, "Group Name: ");
-            strcat(gTooltipData, S.GroupInfo[timerInfo.nGroupIndex].pName);
-            strcat(gTooltipData, "\n");
-
-            strcat(gTooltipData, "Thread: ");
-            strcat(gTooltipData, timer.mThreadName);
-            strcat(gTooltipData, "\n");
-
-            char buffer[MAX_TEMP_BUFFER_SIZE]{};
-
-            snprintf(buffer, MAX_TEMP_BUFFER_SIZE, "%u", timer.mFrameNum);
-            strcat(gTooltipData, "Frame Number: ");
-            strcat(gTooltipData, buffer);
-            strcat(gTooltipData, "\n");
-
-            snprintf(buffer, MAX_TEMP_BUFFER_SIZE, "%f", timer.mCurrFrameTime + timer.mStartTime);
-            strcat(gTooltipData, "Start Time(ms): ");
-            strcat(gTooltipData, buffer);
-            strcat(gTooltipData, "\n");
-
-            snprintf(buffer, MAX_TEMP_BUFFER_SIZE, "%f", timer.mCurrFrameTime + timer.mEndTime);
-            strcat(gTooltipData, "End Time(ms)  : ");
-            strcat(gTooltipData, buffer);
-            strcat(gTooltipData, "\n");
-
-            snprintf(buffer, MAX_TEMP_BUFFER_SIZE, "%f", timer.mEndTime - timer.mStartTime);
-            strcat(gTooltipData, "Total Time(ms): ");
-            strcat(gTooltipData, buffer);
-            strcat(gTooltipData, "\n");
+            snprintf(gTooltipData, MAX_TOOLTIP_STR_LEN,
+                     "%s"
+                     "\n------------------------------\n"
+                     "Group Name: %s\n"
+                     "Thread: %s\n"
+                     "Frame Number: %u\n"
+                     "Start Time(ms): %f\n"
+                     "End Time(ms)  : %f\n"
+                     "Total Time(ms): %f\n",
+                     timerInfo.pName, S.GroupInfo[timerInfo.nGroupIndex].pName, timer.mThreadName, timer.mFrameNum,
+                     timer.mCurrFrameTime + timer.mStartTime, timer.mCurrFrameTime + timer.mEndTime, timer.mEndTime - timer.mStartTime);
 
             gShowTooltip = true;
         }
@@ -1581,7 +1560,7 @@ void profileLoadWidgetUI(Profile& S)
     {
         UIWidget* pDumpBase = &columnWidgetBases[DUMP];
         pDumpBase->mType = WIDGET_TYPE_DROPDOWN;
-        strcpy(pDumpBase->mLabel, "Dump Frames Detailed View");
+        strcpy(pDumpBase->mLabel, "Dump Frames To File");
 
         dump.pData = (uint32_t*)&gDumpFramesToFile;
         dump.pNames = pDumpFramesToFileNames;

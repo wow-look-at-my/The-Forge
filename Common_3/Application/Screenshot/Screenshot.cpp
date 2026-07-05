@@ -251,9 +251,9 @@ void requestScreenshotCapture(const char* name)
     ASSERT(pScreenshotCapturer);
 
     size_t nameLen = strlen(name);
-    // appname + '_' + name + (.png / .hdr)
+    // appname + '_' + name + (.png / .hdr) + '\0'
     size_t appNameLen = pScreenshotCapturer->mAppNameLen;
-    if (VERIFYMSG(nameLen + appNameLen + 4 < FS_MAX_PATH,
+    if (VERIFYMSG(nameLen + appNameLen + 1 + 4 + 1 <= FS_MAX_PATH,
                   "App name + screenshot name's total size exceeds FS_MAX_PATH. Only using app name."))
     {
         pScreenshotCapturer->mScreenshotName[appNameLen] = '_';

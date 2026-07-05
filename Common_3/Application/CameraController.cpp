@@ -370,8 +370,9 @@ bool loadCameraPath(const char* pFileName, uint32_t& outNumCameraPoints, float3*
 
     // Read whole file..
     ssize_t fhSize = fsGetStreamFileSize(&fh);
-    char*   pBuffer = (char*)tf_malloc(sizeof(char) * fhSize);
+    char*   pBuffer = (char*)tf_malloc(sizeof(char) * (fhSize + 1));
     fsReadFromStream(&fh, pBuffer, sizeof(char) * fhSize);
+    pBuffer[fhSize] = '\0';
     fsCloseStream(&fh);
 
     // Skip first line that contains a comment..
@@ -381,7 +382,10 @@ bool loadCameraPath(const char* pFileName, uint32_t& outNumCameraPoints, float3*
     // Find number of points and skip the line..
     outNumCameraPoints = cBuffer ? atoi(cBuffer) : 0;
     if (outNumCameraPoints == 0)
+    {
+        tf_free(pBuffer);
         return false;
+    }
 
     float3* pCameraPoints = (float3*)tf_malloc(sizeof(float3) * outNumCameraPoints);
 
@@ -404,7 +408,7 @@ bool loadCameraPath(const char* pFileName, uint32_t& outNumCameraPoints, float3*
             }
         }
         // skip line (newline character)..
-        if (!cBuffer || (pBuffer - cBuffer) + 1 == fhSize)
+        if (!cBuffer || (cBuffer - pBuffer) + 1 == fhSize)
         {
             LOGF(eERROR, "Failed to parse cameraPath.txt.");
             break;

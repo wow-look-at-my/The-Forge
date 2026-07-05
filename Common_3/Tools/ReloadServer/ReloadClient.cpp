@@ -558,7 +558,7 @@ bool platformInitReloadClient(void)
     tfrg_atomic32_store_release(&gClient.mShouldReenableButton, 0);
     tfrg_atomic32_store_release(&gClient.mIsReloading, 0);
     gClient.mNotification = bfromarr(gClient.mNotificationBuf);
-    bassigncstr(&gClient.mNotification, "Notificaiton: None");
+    bassigncstr(&gClient.mNotification, "Notification: None");
 
     gReloadKey = inputGetCustomBindingEnum("reload_shaders");
 

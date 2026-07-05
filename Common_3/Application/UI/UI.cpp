@@ -2345,15 +2345,18 @@ void uiRemoveComponent(UIComponent* pGui)
 
     uiRemoveAllComponentWidgets(pGui);
 
-    ptrdiff_t componentIndex = 0;
+    ptrdiff_t componentIndex = -1;
     for (ptrdiff_t i = 0; i < arrlen(pUserInterface->mComponents); ++i)
     {
         UIComponent* pComponent = pUserInterface->mComponents[i];
         if (pComponent == pGui)
+        {
             componentIndex = i;
+            break;
+        }
     }
 
-    if (componentIndex < arrlen(pUserInterface->mComponents))
+    if (componentIndex >= 0)
     {
         uiRemoveAllComponentWidgets(pGui);
         arrdel(pUserInterface->mComponents, componentIndex);

@@ -238,7 +238,7 @@ void writeLogVaList(uint32_t level, const char* filename, int line_number, const
     for (uint32_t i = 0; i < sizeof(logLevelPrefixes) / sizeof(logLevelPrefixes[0]); ++i)
     {
         Prefix* it = &logLevelPrefixes[i];
-        if ((it->first & level) && (gLogger.mLogLevel & level))
+        if ((it->first & level) && (gLogger.mLogLevel & it->first))
         {
             log_levels[log_level_count] = i;
             ++log_level_count;

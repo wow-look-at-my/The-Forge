@@ -109,7 +109,7 @@ bool initCpuInfo(CpuInfo* outCpuInfo)
 
     jfieldID    field;
     jstring     jHardwareString, jBrandString, jBoardString, jModelString;
-    const char *hardwareString, *brandStrirng, *boardString, *modelString;
+    const char *hardwareString, *brandString, *boardString, *modelString;
 
     field = pJavaEnv->GetStaticFieldID(classBuild, "HARDWARE", "Ljava/lang/String;");
     jHardwareString = (jstring)pJavaEnv->GetStaticObjectField(classBuild, field);
@@ -117,7 +117,7 @@ bool initCpuInfo(CpuInfo* outCpuInfo)
 
     field = pJavaEnv->GetStaticFieldID(classBuild, "BRAND", "Ljava/lang/String;");
     jBrandString = (jstring)pJavaEnv->GetStaticObjectField(classBuild, field);
-    brandStrirng = pJavaEnv->GetStringUTFChars(jBrandString, 0);
+    brandString = pJavaEnv->GetStringUTFChars(jBrandString, 0);
 
     field = pJavaEnv->GetStaticFieldID(classBuild, "BOARD", "Ljava/lang/String;");
     jBoardString = (jstring)pJavaEnv->GetStaticObjectField(classBuild, field);
@@ -127,12 +127,12 @@ bool initCpuInfo(CpuInfo* outCpuInfo)
     jModelString = (jstring)pJavaEnv->GetStaticObjectField(classBuild, field);
     modelString = pJavaEnv->GetStringUTFChars(jModelString, 0);
 
-    snprintf(info.name, sizeof(info.name), "%s %s %s %s   ", hardwareString, brandStrirng, boardString, modelString);
+    snprintf(info.name, sizeof(info.name), "%s %s %s %s   ", hardwareString, brandString, boardString, modelString);
 
-    pJavaEnv->GetStringUTFChars(jHardwareString, 0);
-    pJavaEnv->GetStringUTFChars(jBrandString, 0);
-    pJavaEnv->GetStringUTFChars(jBoardString, 0);
-    pJavaEnv->GetStringUTFChars(jModelString, 0);
+    pJavaEnv->ReleaseStringUTFChars(jHardwareString, hardwareString);
+    pJavaEnv->ReleaseStringUTFChars(jBrandString, brandString);
+    pJavaEnv->ReleaseStringUTFChars(jBoardString, boardString);
+    pJavaEnv->ReleaseStringUTFChars(jModelString, modelString);
 
 #endif
 
@@ -148,11 +148,11 @@ char* trimString(char* inString)
 {
     // trim end
     char* trimmedString = inString + (MAXCPUNAME - 1);
-    while (*trimmedString == ' ' || *trimmedString == '\0')
+    while (trimmedString > inString && (*trimmedString == ' ' || *trimmedString == '\0'))
     {
         trimmedString--;
     }
-    *trimmedString = '\0';
+    *(trimmedString + 1) = '\0';
 
     // trim  start
     trimmedString = inString;
