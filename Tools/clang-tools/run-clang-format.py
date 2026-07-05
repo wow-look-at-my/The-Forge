@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # Copyright (c) 2017-2025 The Forge Interactive Inc.
 #
 # This file is part of The-Forge
@@ -47,7 +47,7 @@ clangFormatExe = os.path.join(scriptDirPath, systemName, "clang-format") + (".ex
 assert(os.path.isfile(clangFormatExe))
 clangFormatArgs = "-i --style=file --fallback-style=none"
 
-dirExcludeRegex = re.compile("\.(git|vs|cache|codelite)|^(Art|Data|Documents|Jenkins|Scripts|Tools|Libraries)|(ForgeShadingLanguage|Shaders|ThirdParty|Debug|Release|WebGpu)$")
+dirExcludeRegex = re.compile(r"\.(git|vs|cache|codelite)|^(Art|Data|Documents|Jenkins|Scripts|Tools|Libraries)|(ForgeShadingLanguage|Shaders|ThirdParty|Debug|Release|WebGpu)$")
 fileExtensions = (".h", ".hpp", ".hxx", ".c", ".cpp", ".cxx", ".inc", ".m", ".mm", ".java")
 filesToFormat = []
 
@@ -70,9 +70,8 @@ def walkLocalDir(path: str) -> None:
 
 def walkRepoDiff(path: str, remote: str, branch: str) -> None:
     os.chdir(path)
-    command = "git fetch {}".format(remote)
-    subprocess.run(command)
-    command = "git diff --name-only --ignore-submodules --diff-filter=ACM {}/{}".format(remote, branch)
+    subprocess.run(["git", "fetch", remote])
+    command = ["git", "diff", "--name-only", "--ignore-submodules", "--diff-filter=ACM", "{}/{}".format(remote, branch)]
     #print("Running diff command:", command)
     fileList = subprocess.run(command, capture_output=True, text=True).stdout
     #print("Diff result is:\n", fileList)
@@ -81,14 +80,13 @@ def walkRepoDiff(path: str, remote: str, branch: str) -> None:
         if not filename:
             continue
 
-        filepath = os.path.join(path, filename)
-        if not dirExcludeRegex.search(filepath) and filepath.endswith(fileExtensions):
-            filesToFormat.append(filepath)
+        # git prints paths relative to the repo root; match exclusions against that
+        if not dirExcludeRegex.search(filename) and filename.endswith(fileExtensions):
+            filesToFormat.append(os.path.join(path, filename))
 
 def walkSubmodulesDiffs(path: str, remote: str, branch: str) -> None:
     os.chdir(path)
-    command = "git submodule status"
-    status = subprocess.run(command, capture_output=True, text=True).stdout
+    status = subprocess.run(["git", "submodule", "status"], capture_output=True, text=True).stdout
 
     for line in status.split("\n"):
         if not line:
@@ -102,11 +100,11 @@ def walkSubmodulesDiffs(path: str, remote: str, branch: str) -> None:
             continue
 
         os.chdir(path)
-        command = "git ls-tree --object-only {}/{} {}".format(remote, branch, submoduleName)
+        command = ["git", "ls-tree", "--object-only", "{}/{}".format(remote, branch), submoduleName]
         commitHash = subprocess.run(command, capture_output=True, text=True).stdout.rstrip()
 
         os.chdir(submodulePath)
-        command = "git diff --name-only --ignore-submodules --diff-filter=ACM {}".format(commitHash)
+        command = ["git", "diff", "--name-only", "--ignore-submodules", "--diff-filter=ACM", commitHash]
         #print("Running diff command:", command)
         proc = subprocess.run(command, capture_output=True, text=True)
 
@@ -120,10 +118,11 @@ def walkSubmodulesDiffs(path: str, remote: str, branch: str) -> None:
         for filename in fileList.split("\n"):
             if not filename:
                 continue
-    
-            filepath = os.path.join(submodulePath, filename)
-            if not dirExcludeRegex.search(filepath) and filepath.endswith(fileExtensions):
-                filesToFormat.append(filepath)
+
+            # match exclusions against the path relative to the outer repo root
+            relpath = os.path.join(submoduleName, filename)
+            if not dirExcludeRegex.search(relpath) and filename.endswith(fileExtensions):
+                filesToFormat.append(os.path.join(submodulePath, filename))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Format files using clang-format. Default behaviour is to format files in all non-ignored folders.")
@@ -134,41 +133,37 @@ if __name__ == "__main__":
     parser.add_argument("--dry-run", action="store_true", help="If set, do not actually make the formatting changes. Files that require formatting are written to `out-files.txt`")
     args = parser.parse_args()
 
+    print("Started formatting")
+
+    oldCwd = os.getcwd()
+
+    if args.diff:
+        walkRepoDiff(theForgePath, args.remote, args.branch)
+        walkSubmodulesDiffs(theForgePath, args.remote, args.branch)
+    else:
+        walkLocalDir(theForgePath)
+
     for dir in formatDirs:
         dirPath = os.path.join(os.path.dirname(theForgePath), dir)
         dirFound = os.path.isdir(dirPath)
         if not dirFound:
             print(f"{dir} not found next to The-Forge repo", file = sys.stderr)
-        print(dir)
-        print(dirPath);
-        print(dirFound)
-        
-        print("Started formatting")
+            continue
 
         if args.diff:
-            oldCwd = os.getcwd()
-            
-            walkRepoDiff(theForgePath, args.remote, args.branch)
-            walkSubmodulesDiffs(theForgePath, args.remote, args.branch)
-        
-            if dirFound:
-                dirBranchName = "master"
-        
-                with open(gitmodulesPath, "r") as f:
-                    for line in f:
-                        if line.startswith("#Custom-Middleware/Ephemeris"):
-                            dirBranchName = line.split(":")[1].strip()
-                            break
-        
-                walkRepoDiff(dirPath, args.remote, dirBranchName)
-        
-            os.chdir(oldCwd)
-        
+            dirBranchName = "master"
+
+            with open(gitmodulesPath, "r") as f:
+                for line in f:
+                    if line.startswith("#Custom-Middleware/Ephemeris"):
+                        dirBranchName = line.split(":")[1].strip()
+                        break
+
+            walkRepoDiff(dirPath, args.remote, dirBranchName)
         else:
-            walkLocalDir(theForgePath)
-        
-            if dirFound:
-                walkLocalDir(dirPath)
+            walkLocalDir(dirPath)
+
+    os.chdir(oldCwd)
 
     if filesToFormat:
         print("Files to format written to", filesToFormatFilePath)
