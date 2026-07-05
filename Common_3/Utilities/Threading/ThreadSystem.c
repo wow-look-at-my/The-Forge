@@ -223,6 +223,7 @@ bool threadSystemInit(ThreadSystem* out, const struct ThreadSystemInitDesc* desc
     if (!success)
     {
         threadSystemCleanup(t);
+        return false;
     }
 
     ThreadDesc threadDesc = { 0 };
@@ -252,8 +253,14 @@ bool threadSystemInit(ThreadSystem* out, const struct ThreadSystemInitDesc* desc
         if (initThread(&threadDesc, t->threads + ti))
             continue;
 
+        acquireMutex(&t->mutex);
         t->stop = true;
         t->stopAbandon = true;
+        wakeAllConditionVariable(&t->conditionTasks);
+        releaseMutex(&t->mutex);
+
+        for (uint64_t tj = 0; tj < ti; ++tj)
+            joinThread(t->threads[tj]);
 
         releaseThreadSystemHandle(t);
         return false;
