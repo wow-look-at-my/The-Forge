@@ -25,7 +25,7 @@ The Forge Framework (TM) (TF) provides building blocks to
 - Supports most of the gaming platforms
 As such it is a core part of our service business.
 
-We offer many platforms (PC, macOS / iOS, Android, Steamdeck, Quest) under the Apacke License Version 2.0 here on Github. 
+We offer many platforms (PC, macOS / iOS, Android, Steamdeck, Quest) under the Apache License Version 2.0 here on Github. 
 We offer a commercial license for game consoles (Playstation, XBOX, and Switch). 
 
 
@@ -40,7 +40,7 @@ What is not there: Physics / Networking / Sound
 
 The "lego" High-Level Features supported on all platforms are at the moment:
 - Resource Loader capable to load textures, buffers and geometry data asynchronously
-- [Lua Scripting System](https://www.lua.org/) - currently used for automatic testing and in 06_Playground to load models and textures and animate the camera and in several other unit tests to cycle through the options they offer during automatic testing.
+- [Lua Scripting System](https://www.lua.org/) - currently used for automatic testing and in 06_MaterialPlayground to load models and textures and animate the camera and in several other unit tests to cycle through the options they offer during automatic testing.
 - Animation System based on [Ozz Animation System](https://github.com/guillaumeblanc/ozz-animation)
 - Consistent Math Library  based on an extended version of [Vectormath](https://github.com/glampert/vectormath) with NEON intrinsics for mobile platforms. It also supports now Double precision.
 - Consistent Memory Managament: 
@@ -425,23 +425,23 @@ We will extend the reporting a bit more over time.
 We improved Ephemeris again and support it now on more platforms. Updating some of the algorithms used and adding more features. 
 
 
-[![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/Custom-Middleware/blob/master/Ephemeris/https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/apple_m1.png)](https://vimeo.com/918128458)
+[![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/apple_m1.png)](https://vimeo.com/918128458)
 
 
 Now we are supporting PC, XBOX'es, PS4/5, Android, Steamdeck, iOS (requires iPhone 11 or higher  (so far not Switch)
 
 
 Ephemeris on XBOX Series X
-![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/Custom-Middleware/blob/master/Ephemeris/https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/scarlet.png)
+![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/scarlet.png)
 
 Ephemeris on Android
-![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/Custom-Middleware/blob/master/Ephemeris/https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/android.png)
+![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/android.png)
 
 Ephemeris on PS4
-![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/Custom-Middleware/blob/master/Ephemeris/https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/PS4.png)
+![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/PS4.png)
 
 Ephemeris on PS5
-![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/Custom-Middleware/blob/master/Ephemeris/https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/PS5.png)
+![Ephemeris 2.0 on February 28th, 2024](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/PS5.png)
 
 
 
@@ -604,19 +604,6 @@ Implemented on MacOS/IOS, but doesn’t give expected performance benefits due t
 To enable re-compilation of shaders during run-time we implemented a cross-platform shader server that allows to recompile shaders by pressing CTRL-S or a button in a dedicated menu.
 You can find the documentation in the Wiki in the FSL section.
 
-### Remote UI Control
-When working remotely, on mobile or console  it can cumbersome to control the development UI.
-We added a remote control application in Common_3\Tools\UIRemoteControl which allows control of all UI elements on all platforms.
-It works as follows:
-- Build and Launch the Remote Control App located in Common_3/Tools/UIRemoteControl
-- When a unit test is started on the target application (i.e. consoles), it starts listening for connections on a part (8889 by default)
-- In the Remote Control App, enter the target ip address and click connect
-
-![Remote UI Control](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/Remote%20UI.jpg)
-
-This is alpha software so expect it to crash ...
-
-
 ### VK_EXT_device_fault support
 This extension allows developers to query for additional information on GPU faults which may have caused device loss, and to generate binary crash dumps.
 
@@ -648,7 +635,7 @@ We do not have a denoiser for the Path Tracer.
 
 This is a cross-platform system that can track GPU capabilities on all platforms and switch on and off features of a game for different platforms. To read a lot more about this follow the link below.
 
-[GPU Configuration system](##-GPU-Config-System)
+[GPU Configuration system](#gpu-configuration-system)
 
 
 ### New macOS / iOS run-time
@@ -808,7 +795,7 @@ We are currently testing on:
         3. `makepkg -si`
     5. Install CodeLite: `yay -S codelite`
 7. Setup The Forge:
-    * Clone The-Forge and Custom-Middleware next to each other, open the UbuntuCodelite workspace for one of the example solutions, and run.
+    * Clone The-Forge and Custom-Middleware next to each other, open one of the SteamOS CodeLite workspaces (e.g. `Examples_3/Unit_Tests/SteamOS_CodeLite/SteamOS_UnitTests.workspace`), and run.
 
 
 # Android Requirements:
@@ -818,7 +805,6 @@ We are currently testing on:
 3. Android API level 23 or higher
 
 At the moment, the Android run-time does not support the following unit tests due to -what we consider- driver bugs or lack of support:
-    * 09a_HybridRayTracing
     * 11_LinkedMultiGPU
     * 11a_UnlinkedMultiGPU
     * 16_RayTracing 
@@ -849,8 +835,8 @@ At the moment, the Android run-time does not support the following unit tests du
 - You can copy the properties from any Unit Test.
 - Use the already provided `.props` files
   - There are 2 `.props` files
-    1. `Common_3/IDE/Visual Studio/TF_Shared.props` can be added to the project using the property manager
-    2. `AGDEVersions.props` needs to be added manually into the project between the ` <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />` and `<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />` lines (see Unit Tests for reference)
+    1. `Examples_3/Build_Props/VS/TF_Shared.props` can be added to the project using the property manager
+    2. `Examples_3/Build_Props/VS/AGDEVersions.Android.props` needs to be added manually into the project between the ` <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />` and `<Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />` lines (see Unit Tests for reference)
 
 For link directories,
 - `$(SolutionDir)$(Platform)\$(Configuration)\` (this is where we have all our libs. set it accordingly)
@@ -864,20 +850,12 @@ Notes:
 
 # Quest 2 Requirements:
 1. Follow the Android setup instructions specified above
-2. Download OVR mobile sdk from oculus website.
-    - https://developer.oculus.com/downloads/package/oculus-mobile-sdk/
-    - Tested with ovr-mobile-sdk version 1.50
-3. Place unzipped sdk in `The-Forge/Common_3/ThirdParty/OpenSource/ovr_sdk_mobile`
-4. Run examples from `Examples_3/Unit_Tests/Quest_VisualStudio2019`. 
-As a side note the following examples may not be current compatible with the Quest:
-    * 05_FontRendering
-    * 13_UserInterface
-    * 17_EntityComponentSystem
-    * 33_YUV
+2. The Quest run-time is based on OpenXR (see `Common_3/Graphics/OpenXR`); no additional SDK download is required
+3. Run examples from `Examples_3/Unit_Tests/Quest_VS2019`
 
 
 # Install 
- * For PC Windows run PRE_BUILD.bat. It will download and unzip the art assets and install the shader builder extension for Visual Studio 2019.
+ * For PC Windows run PRE_BUILD.bat. It will download and unzip the art assets.
  * For Linux and Mac run PRE_BUILD.command.
   
     It will only download and unzip required Art Assets (No plugins/extensions install). 
@@ -983,27 +961,6 @@ PS4
 ![Screen-Space Shadows PS4](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/Screen-Space-Shadows/Orbis/PS4-1-20240401-0051.png) 
 
 
-## 9a. Hybrid Ray-Traced Shadows
-This unit test was build by Kostas Anagnostou @KostasAAA to show how to ray trace shadows without using a ray tracing API like DXR / RTX. It should run on all GPUs (not just NVIDIA RTX GPUs) and the expectation is that it should run comparable with a DXR / RTX based version even on a NVIDIA RTX GPU. That means the users of your game do not have to buy a NVIDIA RTX GPU to enjoy HRT shadows :-)
-
-
-<!--![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HRT_Shadows.png)-->
-
-Mac M2 (1440x838)
-![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HybridRaytracing_M2Mac_1440x838.png)
-
-PS4 Pro (3840x2160)
-![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HybridRaytracing_PS4Pro_3840x2160.png)
-
-Switch (1280x720)
-![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HybridRaytracing_Switch_1280x720.PNG)
-
-XBOX One Series S (1080p)
-![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HybridRaytracing_XboxOneS_1920x1080.png)
-
-iPad Pro 12.9-inch (5th generation) (Model A2378) (2733x2048)
-![Hybrid Ray Traced Shadows](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/09a_HRT_Shadows_iPad_2733x2048.png)
-
 ## 10. Screen-Space Reflections
 This test offers two choices: you can pick either Pixel Projected Reflections or AMD's FX Stochastic Screen Space Reflection. We just made AMD's FX code cross-platform. It runs now on Windows, Linux, macOS, Switch, PS and XBOX.
 
@@ -1058,7 +1015,7 @@ For professional visualization applications, we now support unlinked multiple GP
 ![Image of the Unlinked Multiple GPUs Unit test](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/11a_UnlinkedMultipleGPUs.PNG)
 
 ## 12. File System Test
-This unit test showcases a cross-platform FileSystem C API, supporting disk-based files, memory streams, and files in zip archives. The API can be viewed in [IFileSystem.h](/Common_3/OS/Interfaces/IFileSystem.h), and all of the example code has been updated to use the new API.
+This unit test showcases a cross-platform FileSystem C API, supporting disk-based files, memory streams, and files in zip archives. The API can be viewed in [IFileSystem.h](/Common_3/Utilities/Interfaces/IFileSystem.h), and all of the example code has been updated to use the new API.
    * The API is based around `Path`s, where each `Path` represents an absolute, canonical path string on a particular file system. You can query information about the files at `Path`s, open files as `FileStream`s, and copy files between different `Path`s.
    * The concept of `FileSystemRoot`s has been replaced by `ResourceDirectory`s. `ResourceDirectory`s are predefined directories where resources are expected to exist, and there are convenience functions to open files in resource directories. If your resources don’t exist within the default directory for a particular resource type, you can call `fsSetPathForResourceDirectory` to relocate the resource directory; see the unit tests for sample code on how to do this.
    
@@ -1071,15 +1028,6 @@ This unit test showcases a cross-platform FileSystem C API, supporting disk-base
 This unit test shows how to use the new wave intrinsics. Supporting Windows with DirectX 12 / Vulkan, Linux with Vulkan and macOS / iOS.
 
 ![Image of the Wave Intrinsics unit test in The Forge](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/15_WaveIntrinsics.png)
-
-## 15. Order-Independent Transparency
-This unit test compares various Order-Indpendent Transparency Methods. In the moment it shows:
-- Alpha blended transparency
-- Weighted blended Order Independent Transparency [Morgan McGuire Blog Entry 2014](http://casual-effects.blogspot.com/2014/03/weighted-blended-order-independent.html) and [Morgan McGuire Blog Entry 2015](http://casual-effects.blogspot.com/2015/03/implemented-weighted-blended-order.html)
-- Weighted blended Order Independent Transparency by Volition [GDC 2018 Talk](https://www.gdcvault.com/play/1025400/Rendering-Technology-in-Agents-of)
-- Adaptive Order Independent Transparency with Raster Order Views [paper by Intel, supports DirectX 11, 12 only](https://software.intel.com/en-us/articles/oit-approximation-with-pixel-synchronization-update-2014), and a [Primer](https://software.intel.com/en-us/gamedev/articles/rasterizer-order-views-101-a-primer)
-- Phenomenological Transparency - Diffusion, Refraction, Shadows by [Morgan McGuire](https://casual-effects.com/research/McGuire2017Transparency/McGuire2017Transparency.pdf)
-![Image of the Order-Indpendent Transparency unit test in The Forge](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/14_OIT.png)
 
 ## 15a. Visibility Buffer OIT
 This unit test shows how to handle per triangle order-independent transparency in an intuitive way in the Visibility Buffer context. The main idea is that a per-pixel linked list of triangle IDs is holding layers of transparency. This is occupies less memory and is more efficient than storing per-pixel information.
@@ -1151,42 +1099,6 @@ iPhone 11 (Model A2111) at resolution 896x414
 ![Ray Queries on iOS](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/Raytracing/16_Raytracing_iOS.png)
 
 We do not have a denoiser for the Path Tracer.
-
-
-## 17. Entity Component System Test
-This unit test shows how to use the high-performance entity component system in The Forge. 
-![Image of the Entity Component System unit test in The Forge](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/17_EntityComponentSystem.png)
-
-This unit test uses
-
-[![flecs](https://user-images.githubusercontent.com/9919222/104115165-0a4e4700-52c1-11eb-85d6-9bdfa9a0265f.png)](https://github.com/SanderMertens/flecs)
-
-Compared to our old ECS system our build times are now much better and the overall system runs faster:
-
-```
-CPU: intel i7-7700k
-GPU: AMD Radeon RX570
-
-Old ECS
-Debug
-Single Threaded: 90.0ms 
-Multi Threaded 29.0ms
-
-Release:
-Single Threaded: 5.7ms
-Multi Threaded: 2.3ms
-
-
-flecs
-Debug
-Single Threaded: 23.0ms   
-Multi Threaded 6.8ms
-
-Release
-Single Threaded 1.7ms
-Multi Threaded 0.9ms
-```
-
 
 
 ## 19. C Hot Reloading
@@ -1288,25 +1200,13 @@ Below are screenshots and descriptions of some of the tools we integrated.
 To enable re-compilation of shaders during run-time we implemented a cross-platform shader server that allows to recompile shaders by pressing CTRL-S or a button in a dedicated menu.
 You can find the documentation in the Wiki in the FSL section.
 
-## Remote UI Control
-When working remotely, on mobile or console  it can cumbersome to control the development UI.
-We added a remote control application in Common_3\Tools\UIRemoteControl which allows control of all UI elements on all platforms.
-It works as follows:
-- Build and Launch the Remote Control App located in Common_3/Tools/UIRemoteControl
-- When a unit test is started on the target application (i.e. consoles), it starts listening for connections on a part (8889 by default)
-- In the Remote Control App, enter the target ip address and click connect
-
-![Remote UI Control](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/Remote%20UI.jpg)
-
-
 ## Ray Tracing Benchmark
-Based on request we are providing a Ray Tracing Benchmark in 16_RayTracing. It allows you to compare the performance of three platforms: 
+Based on request we are providing a Ray Tracing Benchmark in 16_RayTracing. It allows you to compare the performance of two platforms: 
   * Windows with DirectX 12 DXR
-  * Windows with Vulkan RTX
   * Linux with Vulkan RTX
 
   We will extend this benchmark to the non-public platforms we support to compare the PC performance with console performance. 
-  The benchmark comes with batch files for all three platforms. Each run generates a HTML output file from the profiler that is integrated in TF. The default number of iterations is 64 but you can adjust that.  There is a Readme file in the 16_RayTracing folder that describes the options.
+  The benchmark comes with run scripts for both platforms. Each run generates a HTML output file from the profiler that is integrated in TF. The default number of iterations is 64 but you can adjust that.  There is a Readme file in the 16_RayTracing folder that describes the options.
 
 Windows DirectX 12 DXR, GeForce RTX 2070 Super, 3840x1600, NVIDIA Driver 441.99
 
@@ -1674,7 +1574,7 @@ SWB is an editor for the 2003 game 'Star Wars Galaxies' that can edit terrains, 
 # Writing Guidelines
 For contributions to The Forge we apply the following writing guidelines:
  * We limit all code to C++ 11 by setting the Clang and other compiler flags
- * We follow the [Orthodox C++ guidelines] (https://gist.github.com/bkaradzic/2e39896bc7d8c34e042b) minus C++ 14 support (see above)
+ * We follow the [Orthodox C++ guidelines](https://gist.github.com/bkaradzic/2e39896bc7d8c34e042b) minus C++ 14 support (see above)
  * Please note that we are going to move towards C99 usage more and more because this language makes it easier to develop high-performance applications in a team. With the increased call numbers of modern APIs and the always performance-detoriating C++ features, C++ is becoming more and more a productivity and run-time performance challenge. C is also a better starting point to port to other languages like RUST. In case any of those languages become common in development.
 
 # User Group Meetings 
