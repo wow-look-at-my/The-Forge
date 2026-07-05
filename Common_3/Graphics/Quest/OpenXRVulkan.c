@@ -52,8 +52,10 @@ bool OpenXRAddVKInstanceExt(const char** instanceExtensionCache, uint* extension
     PFN_xrGetVulkanInstanceExtensionsKHR pfnGetVulkanInstanceExtensionsKHR = NULL;
     xrGetInstanceProcAddr(pOXR->mInstance, "xrGetVulkanInstanceExtensionsKHR", (PFN_xrVoidFunction*)&pfnGetVulkanInstanceExtensionsKHR);
 
+    const uint extensionsBufferCapacity = extensionsBufferSize;
     pfnGetVulkanInstanceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, 0, &extensionsBufferSize, NULL);
-    pfnGetVulkanInstanceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, extensionsBufferSize, &extensionsBufferSize, pExtensionsBuffer);
+    ASSERT(extensionsBufferSize <= extensionsBufferCapacity);
+    pfnGetVulkanInstanceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, extensionsBufferCapacity, &extensionsBufferSize, pExtensionsBuffer);
 
     const char* vrExtensions[32];
     vrExtensions[0] = pExtensionsBuffer;
@@ -62,6 +64,11 @@ bool OpenXRAddVKInstanceExt(const char** instanceExtensionCache, uint* extension
     {
         if (pExtensionsBuffer[i] == ' ')
         {
+            if (vrExtensionCount >= (int)TF_ARRAY_COUNT(vrExtensions))
+            {
+                ASSERT(false);
+                break;
+            }
             vrExtensions[vrExtensionCount] = &pExtensionsBuffer[i + 1];
             pExtensionsBuffer[i] = '\0';
             ++vrExtensionCount;
@@ -105,11 +112,14 @@ bool OpenXRAddVKDeviceExt(const char** deviceExtensionCache, uint* extensionCoun
     PFN_xrGetVulkanDeviceExtensionsKHR pfnGetVulkanDeviceExtensionsKHR = NULL;
     xrGetInstanceProcAddr(pOXR->mInstance, "xrGetVulkanDeviceExtensionsKHR", (PFN_xrVoidFunction*)(&pfnGetVulkanDeviceExtensionsKHR));
 
+    const uint extensionsBufferCapacity = extensionsBufferSize;
     extensionsBufferSize = 0;
     pfnGetVulkanDeviceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, 0, &extensionsBufferSize, NULL);
     if (extensionsBufferSize > 0)
     {
-        pfnGetVulkanDeviceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, extensionsBufferSize, &extensionsBufferSize, pExtensionsBuffer);
+        ASSERT(extensionsBufferSize <= extensionsBufferCapacity);
+        pfnGetVulkanDeviceExtensionsKHR(pOXR->mInstance, pOXR->mSystemId, extensionsBufferCapacity, &extensionsBufferSize,
+                                        pExtensionsBuffer);
     }
 
     const char* vrExtensions[32];
@@ -119,6 +129,11 @@ bool OpenXRAddVKDeviceExt(const char** deviceExtensionCache, uint* extensionCoun
     {
         if (pExtensionsBuffer[i] == ' ')
         {
+            if (vrExtensionCount >= (int)TF_ARRAY_COUNT(vrExtensions))
+            {
+                ASSERT(false);
+                break;
+            }
             vrExtensions[vrExtensionCount] = &pExtensionsBuffer[i + 1];
             pExtensionsBuffer[i] = '\0';
             ++vrExtensionCount;

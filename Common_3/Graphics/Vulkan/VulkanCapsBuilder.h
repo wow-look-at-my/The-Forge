@@ -46,7 +46,7 @@ void vkCapsBuilder(GpuDesc* pGpuDesc)
 
         vkGetPhysicalDeviceFormatProperties(pGpuDesc->mVk.pGpu, fmt, &formatSupport);
 
-        if (formatSupport.linearTilingFeatures & VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT)
+        if (formatSupport.optimalTilingFeatures & VK_FORMAT_FEATURE_SAMPLED_IMAGE_FILTER_LINEAR_BIT)
         {
             pGpuDesc->mFormatCaps[i] |= FORMAT_CAP_LINEAR_FILTER;
         }
