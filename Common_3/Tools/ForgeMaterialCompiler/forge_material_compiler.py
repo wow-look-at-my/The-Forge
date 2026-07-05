@@ -66,14 +66,16 @@ class ShaderSet:
         
     @staticmethod
     def shader_extension(index):
-        types = [ ".vert", ".frag", ".tesc", "tese", ".geom", ".comp" ]
+        types = [ ".vert", ".frag", ".tesc", ".tese", ".geom", ".comp" ]
         return types[index]
 
 class MaterialSet:    
     def __init__(self):
+        self.name = ""
         self.shader_set = ""
         self.shader_set_idx = 0
         self.texture_set = ""
+        self.texture_set_idx = 0
 
 class Material:    
     def __init__(self):
@@ -131,7 +133,7 @@ class MaterialParser:
         self.out.filename = filename
 
         for index, line in enumerate(lines):
-            line.strip()
+            line = line.strip()
             if len(line) == 0 or line.startswith('#'): continue
 
             tokens = line.split(' ')

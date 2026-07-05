@@ -162,7 +162,7 @@ def main():
         if 'deps' in regen:
             regen = None
 
-    fsl_assert(args.destination, filename=fsl_input, message='Missing destionation directory')
+    fsl_assert(args.destination, filename=fsl_input, message='Missing destination directory')
     binary_declarations, fsl_dependencies = collect_shader_decl(args, fsl_input, platforms, regen, dependencies, [])
 
     if not binary_declarations:
@@ -189,9 +189,9 @@ def main():
             bin_dir = os.path.join(args.binaryDestination, platform.name)
             os.makedirs(bin_dir, exist_ok=True)
 
-            for binary in binary_declarations:
-                job = (args, regen, binary, platform, dst_dir, bin_dir)
-                jobs[binary.stage] += [job]
+        for binary in binary_declarations:
+            job = (args, regen, binary, platform, dst_dir, bin_dir)
+            jobs[binary.stage] += [job]
     exit_code = 0
 
     if args.mp:

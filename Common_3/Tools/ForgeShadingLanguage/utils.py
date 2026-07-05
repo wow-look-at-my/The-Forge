@@ -678,7 +678,7 @@ def collect_shader_decl(args, filepath: str, platforms, regen, dependencies, bin
                     cmd += ['-MMD', '-MF', deps_filepath]
 
             if binary.stage is Stages.ROOTSIG:
-                if platform_langs[platform] is 'DIRECT3D12':
+                if platform_langs[platform] == 'DIRECT3D12':
                     cmd += ['-z']
 
             cp = subprocess.run(cmd, input=source, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -727,7 +727,7 @@ def collect_shader_decl(args, filepath: str, platforms, regen, dependencies, bin
             if binary.stage is Stages.GRAPH:
                 doProcess = b'[Shader("node")]' in shaderSource
             if binary.stage is Stages.ROOTSIG:
-                if platform_langs[platform] is 'DIRECT3D12':
+                if platform_langs[platform] == 'DIRECT3D12':
                     doProcess = True
             if doProcess:
                 binary.preprocessed_srcs[platform] = shaderSource.decode().splitlines(keepends=True)
