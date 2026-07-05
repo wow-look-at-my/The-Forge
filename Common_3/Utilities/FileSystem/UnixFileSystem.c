@@ -89,7 +89,7 @@ static bool ioUnixFsOpen(IFileSystem* io, const ResourceDirectory rd, const char
     int oflags = 0;
 
     // 666
-    mode_t omode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IROTH;
+    mode_t omode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
 
     if (mode & FM_WRITE)
     {

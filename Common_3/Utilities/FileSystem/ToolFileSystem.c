@@ -617,7 +617,7 @@ bool fsGetFilesWithExtension(ResourceDirectory resourceDir, const char* subDirec
 
     if (!success)
     {
-        tf_free(*out);
+        tf_free(stringList);
     }
     else
     {
@@ -669,9 +669,6 @@ bool fsGetSubDirectories(ResourceDirectory resourceDir, const char* subDirectory
         stringList[i] = firstString + (sizeof(char) * FS_MAX_PATH * i);
     }
 
-    *out = stringList;
-    *count = filesFound;
-
     int strIndex = 0;
     for (;;)
     {
@@ -693,7 +690,7 @@ bool fsGetSubDirectories(ResourceDirectory resourceDir, const char* subDirectory
 
     if (!success)
     {
-        tf_free(*out);
+        tf_free(stringList);
     }
     else
     {
@@ -798,7 +795,7 @@ bool fsCheckPath(ResourceDirectory rd, const char* path, bool* exist, bool* isDi
     if (errno == ENOENT)
         return true;
 
-    LOGF(eERROR, "Failed to retreive path '%s' info: '%'", fullPath, strerror(errno));
+    LOGF(eERROR, "Failed to retrieve path '%s' info: '%s'", fullPath, strerror(errno));
     return false;
 }
 
@@ -815,7 +812,7 @@ bool fsDirectoryIteratorOpen(ResourceDirectory rd, const char* dir, FsDirectoryI
     {
         if (errno == ENOENT)
             return false;
-        LOGF(eERROR, "Failed to open directory '%s': '%'", fullPath, strerror(errno));
+        LOGF(eERROR, "Failed to open directory '%s': '%s'", fullPath, strerror(errno));
         return false;
     }
 
@@ -830,7 +827,7 @@ void fsDirectoryIteratorClose(FsDirectoryIterator iterator)
     if (closedir(directory))
     {
         // We expect only EBADF here - Invalid directory stream descriptor.
-        LOGF(eERROR, "Failed to close directory: '%'", strerror(errno));
+        LOGF(eERROR, "Failed to close directory: '%s'", strerror(errno));
     }
 }
 
@@ -846,7 +843,7 @@ bool fsDirectoryIteratorNext(FsDirectoryIterator iterator, struct FsDirectoryIte
         struct dirent* entry = readdir(directory);
         if (errno)
         {
-            LOGF(eERROR, "Failed to iterate directory: '%'", strerror(errno));
+            LOGF(eERROR, "Failed to iterate directory: '%s'", strerror(errno));
             return false;
         }
 
@@ -872,9 +869,9 @@ bool fsDirectoryIteratorNext(FsDirectoryIterator iterator, struct FsDirectoryIte
         case DT_UNKNOWN: // filesystem doesn't support getting type from dirent
         {
             struct stat st = { 0 };
-            if (stat(entry->d_name, &st))
+            if (fstatat(dirfd(directory), entry->d_name, &st, 0))
             {
-                LOGF(eERROR, "Failed to retreive path '%s' info: '%'", entry->d_name, strerror(errno));
+                LOGF(eERROR, "Failed to retrieve path '%s' info: '%s'", entry->d_name, strerror(errno));
                 continue;
             }
 
