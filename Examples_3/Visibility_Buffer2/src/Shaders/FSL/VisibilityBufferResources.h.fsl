@@ -28,7 +28,7 @@
 #include "../../../../../Common_3/Renderer/VisibilityBuffer2/Shaders/FSL/VisibilityBufferShaderDefs.h.fsl"
 #include "../../../../../Common_3/Renderer/VisibilityBuffer2/Shaders/FSL/VisibilityBufferStructs.h.fsl"
 #include "../../../../../Common_3/Renderer/VisibilityBuffer2/Shaders/FSL/VisibilityBufferResources.h.fsl"
-#include "Shading.h.fsl"
-#include "Structs.h"
+#include "shading.h.fsl"
+#include "structs.h"
 
 #endif /* vb_resources_h */

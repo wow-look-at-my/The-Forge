@@ -45,7 +45,7 @@
 */
 
 #define SHORT_CUT_FILL_COLOR
-#include "Hair.h.fsl"
+#include "hair.h.fsl"
 
 #if FT_MULTIVIEW
 #define VR_VIEWID_PARAM(x) , x

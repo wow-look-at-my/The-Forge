@@ -27,7 +27,7 @@
 // gradients instead of screen-space projected triangles method.
 // #define USE_RAY_DIFFERENTIALS
 
-#include "Shading.h.fsl"
+#include "shading.h.fsl"
 #include "../../../../../Common_3/Renderer/VisibilityBuffer/Shaders/FSL/VisibilityBufferShadingUtilities.h.fsl"
 
 #include "VisibilityBufferResources.h.fsl"

@@ -23,7 +23,7 @@
 */
 
 
-#include "Structs.h"
+#include "structs.h"
 #include "Global.srt.h"
 
 

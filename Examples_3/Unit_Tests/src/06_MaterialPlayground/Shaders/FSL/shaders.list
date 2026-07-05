@@ -80,11 +80,11 @@
 #end
 
 #vert FT_MULTIVIEW fullscreen.vert
-#include "FullScreen.vert.fsl"
+#include "fullscreen.vert.fsl"
 #end
 
 #vert FT_MULTIVIEW hair.vert
-#include "Hair.vert.fsl"
+#include "hair.vert.fsl"
 #end
 
 #comp hair_integrate.comp
@@ -140,19 +140,19 @@
 #end
 
 #frag FT_MULTIVIEW renderSceneBRDF.frag
-#include "RenderSceneBRDF.frag.fsl"
+#include "renderSceneBRDF.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW renderSceneBRDF.vert
-#include "RenderSceneBRDF.vert.fsl"
+#include "renderSceneBRDF.vert.fsl"
 #end
 
 #frag renderSceneShadows.frag
-#include "RenderSceneShadows.frag.fsl"
+#include "renderSceneShadows.frag.fsl"
 #end
 
 #vert renderSceneShadows.vert
-#include "RenderSceneShadows.vert.fsl"
+#include "renderSceneShadows.vert.fsl"
 #end
 
 #frag FT_MULTIVIEW showCapsules.frag
@@ -164,9 +164,9 @@
 #end
 
 #frag FT_MULTIVIEW skybox.frag
-#include "Skybox.frag.fsl"
+#include "skybox.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW skybox.vert
-#include "Skybox.vert.fsl"
+#include "skybox.vert.fsl"
 #end

@@ -7,10 +7,10 @@
 #end
 
 #frag basic.frag
-#include "Basic.frag.fsl"
+#include "basic.frag.fsl"
 #end
 
 #vert basic.vert
-#include "Basic.vert.fsl"
+#include "basic.vert.fsl"
 #end
 

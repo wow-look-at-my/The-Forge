@@ -2,5 +2,5 @@
 
 
 #comp FT_NO_AB copy.comp
-#include "Copy.comp.fsl"
+#include "copy.comp.fsl"
 #end

@@ -23,7 +23,7 @@
 */
 
 #include "VisibiltyBufferResources.h.fsl"
-#include "CopyDepth.srt.h"
+#include "copydepth.srt.h"
 
 ROOT_SIGNATURE(ComputeRootSignature)
 NUM_THREADS(8,  8,  1)

@@ -28,8 +28,8 @@
 	#define IMPORTANCE_SAMPLE_COUNT 64
 #endif
 
-#include "Resources.comp.h.fsl"
-#include "Resources.h.fsl"
+#include "resources.comp.h.fsl"
+#include "resources.h.fsl"
 #include "PBR.srt.h"
 
 STATIC float Pi = 3.14159265359;

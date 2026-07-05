@@ -22,8 +22,8 @@
  * under the License.
 */
 
-#include "Resources.h.fsl"
-#include "Capsules.srt.h"
+#include "resources.h.fsl"
+#include "capsules.srt.h"
 
 
 

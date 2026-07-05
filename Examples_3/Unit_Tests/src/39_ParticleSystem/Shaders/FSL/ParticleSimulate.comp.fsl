@@ -26,7 +26,7 @@
 #include "../../../../../../Common_3/Renderer/ParticleSystem/Shaders/ParticleSets.h.fsl"
 #include "ShaderDefs.h.fsl"
 #include "VisibilityBufferResources.h.fsl"
-#include "Particle.srt.h"
+#include "particle.srt.h"
 #include "../../../Graphics/ShaderUtilities.h.fsl"
 #include "../../../../../../Common_3/Renderer/ParticleSystem/Shaders/ParticleBoids.h.fsl"
 #include "../../../../../../Common_3/Renderer/ParticleSystem/Shaders/ParticleRandom.h.fsl"

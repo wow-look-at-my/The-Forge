@@ -24,7 +24,7 @@
 
 #include "ShaderDefs.h.fsl"
 #include "VisibilityBufferResources.h.fsl"
-#include "TriangleFiltering.srt.h"
+#include "triangleFiltering.srt.h"
 
 #include "../../../../../../Common_3/Renderer/VisibilityBuffer/Shaders/FSL/ClearBuffers.h.fsl"
 

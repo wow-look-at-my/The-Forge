@@ -7,11 +7,11 @@
 #end
 
 #vert particle.vert
-#include "Particle.vert.fsl"
+#include "particle.vert.fsl"
 #end
 
 #frag particle.frag
-#include "Particle.frag.fsl"
+#include "particle.frag.fsl"
 #end
 
 #comp particle_simulate.comp

@@ -23,7 +23,7 @@
 */
 
 #include "VisibiltyBufferResources.h.fsl"
-#include "GenerateMips.srt.h"
+#include "generateMips.srt.h"
 
 ROOT_SIGNATURE(ComputeRootSignature)
 NUM_THREADS(16,  16,  1)

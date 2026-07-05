@@ -2,13 +2,13 @@
 
 
 #frag FT_MULTIVIEW fontstash.frag
-#include "FontStash.frag.fsl"
+#include "fontstash.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW fontstash2D.vert
-#include "FontStash2D.vert.fsl"
+#include "fontstash2D.vert.fsl"
 #end
 
 #vert FT_MULTIVIEW fontstash3D.vert
-#include "FontStash3D.vert.fsl"
+#include "fontstash3D.vert.fsl"
 #end

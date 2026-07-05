@@ -31,12 +31,12 @@
 #end
 
 #vert display.vert
-#include "Display.vert.fsl"
+#include "display.vert.fsl"
 #end
 
 #frag godray.frag
 #define SAMPLE_COUNT 1
-#include "Godray.frag.fsl"
+#include "godray.frag.fsl"
 #end
 
 #comp godray_blur.comp
@@ -48,15 +48,15 @@
 #end
 
 #frag display.frag
-#include "Display.frag.fsl"
+#include "display.frag.fsl"
 #end
 
 #vert skybox.vert
-#include "Skybox.vert.fsl"
+#include "skybox.vert.fsl"
 #end
 
 #frag skybox.frag
-#include "Skybox.frag.fsl"
+#include "skybox.frag.fsl"
 #end
 
 #vert visibilityBuffer_shade.vert
