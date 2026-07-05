@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     # if no platform specified, use these defaults
     if not lang and 'ANDROID' in platform.upper():
-        lang = 'ANDROID'
+        lang = 'ANDROID_VULKAN'
     elif not lang and 'NX64' in platform.upper():
         lang = 'SWITCH'
     elif not lang and 'ORBIS' in platform.upper():

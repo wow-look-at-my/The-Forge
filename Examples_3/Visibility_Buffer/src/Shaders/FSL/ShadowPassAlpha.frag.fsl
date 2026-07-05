@@ -23,7 +23,7 @@
 */
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 PS_ZORDER_EARLYZ()
 

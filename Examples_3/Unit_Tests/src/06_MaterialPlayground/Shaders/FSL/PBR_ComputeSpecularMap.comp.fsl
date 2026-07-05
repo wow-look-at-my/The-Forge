@@ -22,8 +22,8 @@
  * under the License.
 */
 
-#include "Resources.comp.h.fsl"
-#include "Resources.h.fsl"
+#include "resources.comp.h.fsl"
+#include "resources.h.fsl"
 #include "PBR.srt.h"
 
 // USERMACRO: IMPORTANCE_SAMPLE_COUNT [64,128,256,1024]

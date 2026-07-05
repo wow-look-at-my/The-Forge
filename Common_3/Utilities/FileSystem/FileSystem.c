@@ -1432,7 +1432,7 @@ static bool ioArchiveOpenByUid(IFileSystem* inFs, uint64_t index, FileMode mode,
 
     struct BunyArMetadata* archive = getFsArchive(inFs);
 
-    if (index > archive->nodeCount)
+    if (index >= archive->nodeCount)
     {
         __FS_SET_ERR(FS_NOT_FOUND_ERR);
         return false;

@@ -23,7 +23,7 @@
 */
 
 // Shader for Skybox in Unit Test 01 - Transformations
-#include "Resources.h.fsl"
+#include "resources.h.fsl"
 
 STRUCT(VSOutput)
 {

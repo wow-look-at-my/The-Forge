@@ -78,7 +78,7 @@
 #end
 
 #comp copyDepth.comp
-#include "CopyDepth.comp.fsl"
+#include "copyDepth.comp.fsl"
 #end
 
 // force AB usage here, because the total number of rw textures in
@@ -93,43 +93,43 @@
 #end
 
 #comp triangleFiltering.comp
-#include "TriangleFiltering.comp.fsl"
+#include "triangleFiltering.comp.fsl"
 #end
 
 #frag FT_MULTIVIEW FT_PRIM_ID visibilityBufferPass.frag
-#include "VisibilityBufferPass.frag.fsl"
+#include "visibilityBufferPass.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW FT_PRIM_ID visibilityBufferPass.vert
-#include "VisibilityBufferPass.vert.fsl"
+#include "visibilityBufferPass.vert.fsl"
 #end
 
 #vert FT_MULTIVIEW FT_PRIM_ID visibilityBufferPassAlpha.vert
-#include "VisibilityBufferPassAlpha.vert.fsl"
+#include "visibilityBufferPassAlpha.vert.fsl"
 #end
 
 #frag FT_MULTIVIEW FT_PRIM_ID visibilityBufferPassAlpha.frag
-#include "VisibilityBufferPassAlpha.frag.fsl"
+#include "visibilityBufferPassAlpha.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW visibilityBufferShade.vert
-#include "VisibilityBufferShade.vert.fsl"
+#include "visibilityBufferShade.vert.fsl"
 #end
 
 #frag FT_MULTIVIEW visibilityBufferShade.frag
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 
 #comp FT_MULTIVIEW generateMips.comp
-#include "GenerateMips.comp.fsl"
+#include "generateMips.comp.fsl"
 #end
 
 #frag FT_MULTIVIEW PPR_Holepatching.frag
-#include "PPR_HolePatching.frag.fsl"
+#include "PPR_Holepatching.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW PPR_Holepatching.vert
-#include "PPR_HolePatching.vert.fsl"
+#include "PPR_Holepatching.vert.fsl"
 #end
 
 #comp FT_MULTIVIEW PPR_Projection.comp
@@ -145,11 +145,11 @@
 #end
 
 #frag FT_MULTIVIEW skybox.frag
-#include "Skybox.frag.fsl"
+#include "skybox.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW skybox.vert
-#include "Skybox.vert.fsl"
+#include "skybox.vert.fsl"
 #end
 
 #comp FT_MULTIVIEW SSSR_ClassifyTiles.comp

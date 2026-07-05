@@ -45,7 +45,7 @@
 */
 
 #define SHORT_CUT_CLEAR
-#include "Hair.h.fsl"
+#include "hair.h.fsl"
 
 ROOT_SIGNATURE(DefaultRootSignature)
 

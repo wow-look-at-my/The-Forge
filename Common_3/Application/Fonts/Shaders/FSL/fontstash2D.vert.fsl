@@ -22,7 +22,7 @@
  * under the License.
  */
  
-#include "Resources.h"
+#include "resources.h"
 
 STRUCT(VsIn)
 {

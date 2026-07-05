@@ -46,7 +46,7 @@
 
 #define HAIR_SHADOW
 
-#include "Hair.h.fsl"
+#include "hair.h.fsl"
 EARLY_FRAGMENT_TESTS
 ROOT_SIGNATURE(DefaultRootSignature)
 void PS_MAIN( SV_SampleIndex(uint) _ )

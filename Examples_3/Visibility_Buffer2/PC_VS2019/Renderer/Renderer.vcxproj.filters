@@ -36,9 +36,6 @@
     <ClCompile Include="..\..\..\..\Common_3\Graphics\Vulkan\Vulkan.c">
       <Filter>Source\Shared</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Common_3\Graphics\Vulkan\Vulkan_Cxx.cpp">
-      <Filter>Source\Shared</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\Common_3\Graphics\Vulkan\VulkanRaytracing.c">
       <Filter>Source\Shared</Filter>
     </ClCompile>

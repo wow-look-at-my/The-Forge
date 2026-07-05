@@ -51,9 +51,6 @@
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\VulkanRaytracing.c">
       <Filter>Graphics\Vulkan</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan_Cxx.cpp">
-      <Filter>Graphics\Vulkan</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\Common_3\Renderer\ParticleSystem\ParticleSystem.cpp">
       <Filter>Renderer\ParticleSystem</Filter>
     </ClCompile>

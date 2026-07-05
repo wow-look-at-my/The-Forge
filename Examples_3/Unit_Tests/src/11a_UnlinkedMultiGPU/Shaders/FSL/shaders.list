@@ -7,25 +7,25 @@
 #end
 
 #frag basic.frag
-#include "Basic.frag.fsl"
+#include "basic.frag.fsl"
 #end
 
 #vert basic.vert
-#include "Basic.vert.fsl"
+#include "basic.vert.fsl"
 #end
 
 #frag skybox.frag
-#include "Skybox.frag.fsl"
+#include "skybox.frag.fsl"
 #end
 
 #vert skybox.vert
-#include "Skybox.vert.fsl"
+#include "skybox.vert.fsl"
 #end
 
 #frag copyQuad.frag
-#include "CopyQuad.frag.fsl"
+#include "copyQuad.frag.fsl"
 #end
 
 #vert copyQuad.vert
-#include "CopyQuad.vert.fsl"
+#include "copyQuad.vert.fsl"
 #end

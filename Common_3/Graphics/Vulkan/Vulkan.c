@@ -1697,7 +1697,7 @@ static inline VkPipelineDepthStencilStateCreateInfo util_to_depth_desc(const Dep
     ds.front.failOp = gVkStencilOpTranslator[pDesc->mStencilFrontFail];
     ds.front.passOp = gVkStencilOpTranslator[pDesc->mStencilFrontPass];
     ds.front.depthFailOp = gVkStencilOpTranslator[pDesc->mDepthFrontFail];
-    ds.front.compareOp = (VkCompareOp)pDesc->mStencilFrontFunc;
+    ds.front.compareOp = gVkComparisonFuncTranslator[pDesc->mStencilFrontFunc];
     ds.front.compareMask = pDesc->mStencilReadMask;
     ds.front.writeMask = pDesc->mStencilWriteMask;
     ds.front.reference = 0;

@@ -119,7 +119,7 @@ inline void mtlCapsBuilder(id<MTLDevice> pDevice, GpuDesc* pGpuDesc)
     int          currentFamily = HIGHEST_GPU_FAMILY;
     for (; currentFamily >= (int)MTLGPUFamilyApple1; currentFamily--)
     {
-        if ([pDevice supportsFamily:highestAppleFamily])
+        if ([pDevice supportsFamily:(MTLGPUFamily)currentFamily])
         {
             highestAppleFamily = (MTLGPUFamily)currentFamily;
             break;

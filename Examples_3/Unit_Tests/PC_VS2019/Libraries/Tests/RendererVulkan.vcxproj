@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan.c" />
-    <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\Vulkan_Cxx.cpp" />
     <ClCompile Include="..\..\..\..\..\Common_3\Graphics\Vulkan\VulkanRaytracing.c" />
   </ItemGroup>
   <ItemGroup>

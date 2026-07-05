@@ -241,6 +241,8 @@ static inline FORGE_CONSTEXPR MTLAccelerationStructureInstanceOptions ToMTLASOpt
     MTLAccelerationStructureInstanceOptions ret = MTLAccelerationStructureInstanceOptionNone;
     if (flags & ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_OPAQUE)
         ret |= MTLAccelerationStructureInstanceOptionOpaque;
+    if (flags & ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_NON_OPAQUE)
+        ret |= MTLAccelerationStructureInstanceOptionNonOpaque;
     if (flags & ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_CULL_DISABLE)
         ret |= MTLAccelerationStructureInstanceOptionDisableTriangleCulling;
     if (flags & ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FRONT_COUNTERCLOCKWISE)

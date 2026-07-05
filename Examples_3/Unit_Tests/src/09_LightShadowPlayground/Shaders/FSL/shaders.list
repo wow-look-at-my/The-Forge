@@ -24,7 +24,7 @@
 #end
 
 #comp triangleFiltering.comp
-#include "TriangleFiltering.comp.fsl"
+#include "triangleFiltering.comp.fsl"
 #end
 
 #frag copyDEMQuads.frag
@@ -44,11 +44,11 @@
 #end
 
 #frag FT_MULTIVIEW display.frag
-#include "Display.frag.fsl"
+#include "display.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW display.vert
-#include "Display.vert.fsl"
+#include "display.vert.fsl"
 #end
 
 #frag fill_Indirection.frag
@@ -81,33 +81,33 @@
 #end
 
 #frag meshVSMDepthPass.frag
-#include "MeshVSMDepthPass.frag.fsl"
+#include "meshVSMDepthPass.frag.fsl"
 #end
 
 #frag meshVSMDepthPassAlpha.frag
-#include "MeshVSMDepthPassAlpha.frag.fsl"
+#include "meshVSMDepthPassAlpha.frag.fsl"
 #end
 
 #frag meshVSMDepthPass_F4_VSM.frag
 #define USE_FLOAT4_VSM_RT 1
-#include "MeshVSMDepthPass.frag.fsl"
+#include "meshVSMDepthPass.frag.fsl"
 #end
 
 #frag meshVSMDepthPassAlpha_F4_VSM.frag
 #define USE_FLOAT4_VSM_RT 1
-#include "MeshVSMDepthPassAlpha.frag.fsl"
+#include "meshVSMDepthPassAlpha.frag.fsl"
 #end
 
 #frag meshMSMDepthPass.frag
-#include "MeshMSMDepthPass.frag.fsl"
+#include "meshMSMDepthPass.frag.fsl"
 #end
 
 #frag meshMSMDepthPassAlpha.frag
-#include "MeshMSMDepthPassAlpha.frag.fsl"
+#include "meshMSMDepthPassAlpha.frag.fsl"
 #end
 
 #comp gaussianBlur.comp
-#include "GaussianBlur.comp.fsl"
+#include "gaussianBlur.comp.fsl"
 #end
 
 #vert meshDepthPassAlpha.vert
@@ -116,108 +116,108 @@
 
 #frag FT_MULTIVIEW resolve_SAMPLE_COUNT_1.frag
 #define SAMPLE_COUNT 1
-#include "Resolve.frag.fsl"
+#include "resolve.frag.fsl"
 #end
 #frag FT_MULTIVIEW resolve_SAMPLE_COUNT_2.frag
 #define SAMPLE_COUNT 2
-#include "Resolve.frag.fsl"
+#include "resolve.frag.fsl"
 #end
 #frag FT_MULTIVIEW resolve_SAMPLE_COUNT_4.frag
 #define SAMPLE_COUNT 4
-#include "Resolve.frag.fsl"
+#include "resolve.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW resolve.vert
-#include "Resolve.vert.fsl"
+#include "resolve.vert.fsl"
 #end
 
 #frag skybox.frag
-#include "Skybox.frag.fsl"
+#include "skybox.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW skybox.vert
-#include "Skybox.vert.fsl"
+#include "skybox.vert.fsl"
 #end
 
 #comp updateRegion3DTexture.comp
-#include "UpdateRegion3DTexture.comp.fsl"
+#include "updateRegion3DTexture.comp.fsl"
 #end
 
 #frag FT_MULTIVIEW upsampleSDFShadow_SAMPLE_COUNT_1.frag
 #define SAMPLE_COUNT 1
-#include "UpsampleSDFShadow.frag.fsl"
+#include "upsampleSDFShadow.frag.fsl"
 #end
 #frag FT_MULTIVIEW upsampleSDFShadow_SAMPLE_COUNT_2.frag
 #define SAMPLE_COUNT 2
-#include "UpsampleSDFShadow.frag.fsl"
+#include "upsampleSDFShadow.frag.fsl"
 #end
 #frag FT_MULTIVIEW upsampleSDFShadow_SAMPLE_COUNT_4.frag
 #define SAMPLE_COUNT 4
-#include "UpsampleSDFShadow.frag.fsl"
+#include "upsampleSDFShadow.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW upsampleSDFShadow.vert
-#include "UpsampleSDFShadow.vert.fsl"
+#include "upsampleSDFShadow.vert.fsl"
 #end
 
 #vert FT_MULTIVIEW FT_PRIM_ID visibilityBufferPass.vert
-#include "VisibilityBufferPass.vert.fsl"
+#include "visibilityBufferPass.vert.fsl"
 #end
 
 #vert FT_MULTIVIEW FT_PRIM_ID visibilityBufferPassCrash.vert
 #define GPU_CRASH
-#include "VisibilityBufferPass.vert.fsl"
+#include "visibilityBufferPass.vert.fsl"
 #end
 
 #frag FT_MULTIVIEW FT_PRIM_ID visibilityBufferPass.frag
-#include "VisibilityBufferPass.frag.fsl"
+#include "visibilityBufferPass.frag.fsl"
 #end
 
 
 #vert FT_MULTIVIEW FT_PRIM_ID visibilityBufferPassAlpha.vert
-#include "VisibilityBufferPassAlpha.vert.fsl"
+#include "visibilityBufferPassAlpha.vert.fsl"
 #end
 #frag FT_MULTIVIEW FT_PRIM_ID visibilityBufferPassAlpha.frag
-#include "VisibilityBufferPassAlpha.frag.fsl"
+#include "visibilityBufferPassAlpha.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW visibilityBufferShade.vert
-#include "VisibilityBufferShade.vert.fsl"
+#include "visibilityBufferShade.vert.fsl"
 #end
 
 #frag FT_MULTIVIEW visibilityBufferShade_SAMPLE_COUNT_1.frag
 #define SAMPLE_COUNT 1
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 #frag FT_MULTIVIEW visibilityBufferShade_SAMPLE_COUNT_2.frag
 #define SAMPLE_COUNT 2
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 #frag FT_MULTIVIEW visibilityBufferShade_SAMPLE_COUNT_4.frag
 #define SAMPLE_COUNT 4
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 
 #frag FT_MULTIVIEW visibilityBufferShadeCrash.frag
 #define GPU_CRASH
 #define SAMPLE_COUNT 1
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 
 #frag FT_MULTIVIEW visibilityBufferShade_F4_VSM_SAMPLE_COUNT_1.frag
 #define SAMPLE_COUNT 1
 #define USE_FLOAT4_VSM_RT 1
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 #frag FT_MULTIVIEW visibilityBufferShade_F4_VSM_SAMPLE_COUNT_2.frag
 #define SAMPLE_COUNT 2
 #define USE_FLOAT4_VSM_RT 1
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 #frag FT_MULTIVIEW visibilityBufferShade_F4_VSM_SAMPLE_COUNT_4.frag
 #define SAMPLE_COUNT 4
 #define USE_FLOAT4_VSM_RT 1
-#include "VisibilityBufferShade.frag.fsl"
+#include "visibilityBufferShade.frag.fsl"
 #end
 
 #comp FT_MULTIVIEW visualizeSDFMesh_SAMPLE_COUNT_1.comp

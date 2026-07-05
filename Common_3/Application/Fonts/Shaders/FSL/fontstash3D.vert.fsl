@@ -23,7 +23,7 @@
  */
 
 #define FONTSTASH3D
-#include "Resources.h"
+#include "resources.h"
 
 STRUCT(VsIn)
 {

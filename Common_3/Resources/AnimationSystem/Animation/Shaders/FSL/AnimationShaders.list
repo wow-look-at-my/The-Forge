@@ -2,17 +2,17 @@
 
 
 #frag joint.frag
-#include "Joint.frag.fsl"
+#include "joint.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW joint.vert
-#include "Joint.vert.fsl"
+#include "joint.vert.fsl"
 #end
 
 #frag bone.frag
-#include "Bone.frag.fsl"
+#include "bone.frag.fsl"
 #end
 
 #vert FT_MULTIVIEW bone.vert
-#include "Bone.vert.fsl"
+#include "bone.vert.fsl"
 #end

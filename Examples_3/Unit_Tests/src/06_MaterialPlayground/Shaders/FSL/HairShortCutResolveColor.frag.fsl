@@ -45,7 +45,7 @@
 */
 
 #define SHORT_CUT_RESOLVE_COLOR
-#include "Hair.h.fsl"
+#include "hair.h.fsl"
 ROOT_SIGNATURE(DefaultRootSignature)
 EARLY_FRAGMENT_TESTS
 float4 PS_MAIN( VSOutputFullscreen In )

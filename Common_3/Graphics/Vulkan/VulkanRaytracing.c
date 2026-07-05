@@ -198,11 +198,11 @@ void addAccelerationStructure(Raytracing* pRaytracing, const AccelerationStructu
 
     pAS->mFlags = ToVkBuildASFlags(pDesc->mFlags);
     pAS->mType = ToVkASType(pDesc->mType);
-    pAS->pGeometryDescs = (VkAccelerationStructureGeometryKHR*)(pAS + 1);
     pAS->mPrimitiveCount = 0;
     // TODO these would ideally be freed as soon as the AS is built. Right now they stay alive until the AS is removed.
     pAS->pGeometryDescs = (VkAccelerationStructureGeometryKHR*)(pAS + 1);
-    pAS->pMaxPrimitiveCountPerGeometry = (uint32_t*)(pAS->pGeometryDescs + pDesc->mBottom.mDescCount);
+    const uint32_t geomCount = (ACCELERATION_STRUCTURE_TYPE_BOTTOM == pDesc->mType) ? pDesc->mBottom.mDescCount : 1;
+    pAS->pMaxPrimitiveCountPerGeometry = (uint32_t*)(pAS->pGeometryDescs + geomCount);
 
     VkDeviceSize scratchBufferSize = 0;
 

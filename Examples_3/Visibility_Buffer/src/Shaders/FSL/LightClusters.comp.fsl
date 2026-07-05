@@ -22,7 +22,7 @@
  * under the License.
 */
 
-#include "Shading.h.fsl"
+#include "shading.h.fsl"
 #include "VisibilityBufferResources.h.fsl"
 #include "LightClusters.srt.h"
 

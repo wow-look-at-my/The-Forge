@@ -292,7 +292,7 @@ def recompile_shaders(intermediate_root: Path, platform: str) -> Union[str, List
             if lang_index != -1:
                 cmd[lang_index + 1] = f'{platform}'
             # remove `--cache-args` from list
-            cache_args_index = cmd.index('--cache-args')
+            cache_args_index = get_fsl_arg_index(cmd, '--cache-args')
             if cache_args_index != -1:
                 cmd = cmd[:cache_args_index] + cmd[cache_args_index + 1:]
             cmds.append(cmd)
@@ -389,7 +389,7 @@ def server_loop(server: socket.socket) -> bool:
         
         # We only allow the client to sent RECOMPILE messages that contain the shader binary root
         if not data or data[:1] != Msg.RECOMPILE:
-            send_error_and_close(conn, f'Expected RECOMPILE message `{Msg.RECOMPILE}`, got `{data[0]}` instead')
+            send_error_and_close(conn, f'Expected RECOMPILE message `{Msg.RECOMPILE}`, got `{data[:1]}` instead')
             return False
 
         # Get intermediate directory and platform that will be used for shader recompilation

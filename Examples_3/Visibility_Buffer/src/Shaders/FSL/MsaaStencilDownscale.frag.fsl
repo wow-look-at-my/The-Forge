@@ -29,7 +29,7 @@
 */
 
 #include "VisibilityBufferResources.h.fsl"
-#include "GLobal.srt.h"
+#include "Global.srt.h"
 
 #define SCALE 2
 #define COMPLEX_PIXEL_SAMPLE_INDEX 1

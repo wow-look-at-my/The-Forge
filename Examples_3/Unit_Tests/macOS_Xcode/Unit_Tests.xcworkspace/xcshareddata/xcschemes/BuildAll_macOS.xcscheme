@@ -115,7 +115,7 @@
                BlueprintIdentifier = "EA463C8A1EF81E8F005AC8C7"
                BuildableName = "14_WaveIntrinsics.app"
                BlueprintName = "14_WaveIntrinsics"
-               ReferencedContainer = "container:14_WaveIntrinsincs/14_WaveIntrinsics.xcodeproj">
+               ReferencedContainer = "container:14_WaveIntrinsics/14_WaveIntrinsics.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

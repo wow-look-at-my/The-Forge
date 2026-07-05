@@ -82,7 +82,7 @@ bool InitOpenXRLoader(struct android_app* pAndroidApp)
         result = xrInitializeLoaderKHR((XrLoaderInitInfoBaseHeaderKHR*)&loaderInitializeInfoAndroid);
     }
 
-    return CHECK_OXR_RESULT(result, "xrGetInstanceProcAddr-xrIntializeLoaderKHR");
+    return CHECK_OXR_RESULT(result, "xrGetInstanceProcAddr-xrInitializeLoaderKHR");
 }
 
 void ExitOpenXRLoader()

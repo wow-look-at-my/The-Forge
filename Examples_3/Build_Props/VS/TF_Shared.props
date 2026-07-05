@@ -23,7 +23,7 @@
       <WarningsAsErrors>true</WarningsAsErrors>
       <WarningLevel Condition="!$(UsingMSVC)">EnableWarnings</WarningLevel>
       <WarningLevel Condition="$(UsingMSVC)">Level4</WarningLevel>
-      <DisableSpecificWarnings Condition="$(UsingMSVC)">4201;4324;4127%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="$(UsingMSVC)">4201;4324;4127;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

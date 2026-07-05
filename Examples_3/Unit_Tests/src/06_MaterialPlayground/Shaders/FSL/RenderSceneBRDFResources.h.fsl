@@ -33,7 +33,7 @@
 #endif
 
 
-#include "Resources.h.fsl"
+#include "resources.h.fsl"
 #include "Global.srt.h"
 
 

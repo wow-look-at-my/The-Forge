@@ -27,7 +27,7 @@
 
 #include "ShaderDefs.h.fsl"
 #include "VisibilityBufferResources.h.fsl"
-#include "ResolveVRS.srt.h"
+#include "resolveVRS.srt.h"
 
 float3 sampleOpaque(uint2 msaaSampleLocation)
 {

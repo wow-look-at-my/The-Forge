@@ -237,6 +237,8 @@ static void wndUpdateResolutionsList(void* pWindowResWidget)
     uint32_t activeResIdx = MAX_WINDOW_RES_COUNT;
 
     pDropdown->mCount = (uint32_t)arrlen(pMonitor->resolutions) - 1;
+    if (pDropdown->mCount > MAX_WINDOW_RES_COUNT)
+        pDropdown->mCount = MAX_WINDOW_RES_COUNT;
 
     for (uint32_t i = 0; i < pDropdown->mCount; ++i)
     {

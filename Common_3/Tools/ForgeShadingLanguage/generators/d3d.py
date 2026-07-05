@@ -115,13 +115,13 @@ def replace_d3d_resource_register(register_subtring, new_register):
     # find ( and find comma
     open_parenthesis_index = register_subtring.find('(')
     comma_index = register_subtring.find(',')
-    if ( open_parenthesis_index is not -1) and (comma_index is not -1) :
+    if ( open_parenthesis_index != -1) and (comma_index != -1) :
         register_subtring = register_subtring[:open_parenthesis_index+1] + new_register + register_subtring[comma_index:]
     return register_subtring
     
 def replace_d3d_register_declaration(line, new_register_string):
     register_index = line.find('register')
-    if register_index is not -1:
+    if register_index != -1:
         line = line[:register_index] + ' ' + new_register_string
     return line
     
@@ -298,19 +298,19 @@ def hlsl(platform, debug, binary: ShaderBinary, dst):
                                 fix_line = False
                                 fixed_register_substring = ''
                                 resource_type_letter = register_subtring[open_parenthesis_index+1:open_parenthesis_index+2]
-                                if resource_type_letter is 's':
+                                if resource_type_letter == 's':
                                     fixed_register_substring = replace_d3d_resource_register(register_subtring, 's'+str(register_index))
                                     register_index += array_count
                                     fix_line = True
-                                elif resource_type_letter is 'b':
+                                elif resource_type_letter == 'b':
                                     fixed_register_substring = replace_d3d_resource_register(register_subtring, 'b'+str(register_index))
                                     register_index += array_count
                                     fix_line = True
-                                elif resource_type_letter is 't':
+                                elif resource_type_letter == 't':
                                     fixed_register_substring = replace_d3d_resource_register(register_subtring, 't'+str(register_index))
                                     register_index += array_count
                                     fix_line = True
-                                elif resource_type_letter is 'u':
+                                elif resource_type_letter == 'u':
                                     fixed_register_substring = replace_d3d_resource_register(register_subtring, 'u'+str(register_index))
                                     register_index += array_count
                                     fix_line = True
