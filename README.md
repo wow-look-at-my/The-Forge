@@ -1338,6 +1338,8 @@ Here are screenshots of the Microprofiler running a unit test on iOS:
 
 ![Microprofiler](https://github.com/ConfettiFX/The-Forge-Media/blob/master/Screenshots/MicroProfiler/IMG_0006_iOS.PNG)
 
+Check out the [Wikipage](https://github.com/ConfettiFX/The-Forge/wiki/Microprofiler---How-to-Use) for an explanation on how to use it.
+
 ## Shader Translator
 We provide a shader translator, that translates one shader language -a superset of HLSL called Forge Shader Language (FLS) - to the target shader language of all our target platforms. That includes the console and mobile platforms as well.
 It is written in Python. We expect this shader translator to be an easier to maintain solution for smaller game teams because it allows to add additional data to the shader source file with less effort. Such data could be for example a bucket classification or different shaders for different capability levels of the underlying platform, descriptor memory requirements or resource memory requirements in general, material info or just information to easier pre-compile pipelines.
